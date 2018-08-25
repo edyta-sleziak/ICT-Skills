@@ -1,4 +1,2 @@
-Welcome to the Playlist 1
-=========================
+Welcome to the GymApp
 
-Version 1 of the Playlist application

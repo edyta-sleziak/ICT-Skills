@@ -1,0 +1,36 @@
+{
+  "memberCollection": [
+    {
+      "id": "member1",
+      "name": "testuser",
+      "email": "test@email",
+      "password": "testpassword",
+      "address": "address",
+      "gender": "F",
+      "height": "1.68",
+      "startingweight": "60",
+      "assessmentsNumber": 2,
+      "assessments": [
+        {
+          "id": "1",
+          "weight": "1",
+          "chest": "2",
+          "thigh": "3",
+          "upperArm": "4",
+          "waist": "5",
+          "hips": "6"
+        },
+        {
+          "id": "5c09cad9-5ece-4484-b8ed-03cae3896c7e",
+          "weight": "78",
+          "chest": "",
+          "thigh": "",
+          "upperArm": "",
+          "waist": "",
+          "hips": ""
+        }
+      ],
+      "currentBMI": 27.64
+    }
+  ]
+}

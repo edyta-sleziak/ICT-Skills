@@ -9,32 +9,34 @@
       "gender": "F",
       "height": "1.68",
       "startingweight": "60",
-      "assessmentsNumber": 2,
+      "assessmentsNumber": "2",
       "assessments": [],
-      "currentBMI": 27.64
+      "currentBMI": "27.64"
     },
     {
-      "id": "67749a3a-92a5-40ac-8872-0f1254e48e2c",
-      "name": "Test1",
+      "id": "222",
+      "name": "Edyciok Pyciok",
       "email": "edyta@test",
       "password": "1234",
       "address": "Test address",
       "gender": "F",
       "height": "1.68",
       "startingweight": "60",
-      "assessmentsNumber": 0,
+      "assessmentsNumber": -17,
       "assessments": [],
-      "currentBMI": 27.64
+      "currentBMI": null
     },
     {
-      "name": "Edyta",
-      "email": "edyta@test",
-      "password": "1234",
-      "address": "",
-      "gender": "F",
-      "height": "1.68",
-      "startingweight": "60",
-      "id": "77f6b56b-4295-4268-9e8b-aaa406095a6d"
+      "name": "Patryczek",
+      "email": "p@o",
+      "password": "123",
+      "address": "123",
+      "gender": "",
+      "height": "1.86",
+      "startingweight": "90",
+      "id": "5d7d4a6a-d0f4-48d4-ab98-2791f97c0958",
+      "assessmentsNumber": 2,
+      "currentBMI": null
     }
   ]
 }

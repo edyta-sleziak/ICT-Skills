@@ -51,6 +51,28 @@ const accounts = {
       response.redirect('/login');
     }
   },
+  
+  settings(request, response) { 
+    const loggedInUser = accounts.getCurrentUser(request);
+    //logger.info('rendering settings for user ' + loggedInUser.name);
+    const viewData = {
+      title: 'Settings',
+      member: loggedInUser,
+    };
+    response.render('settings', viewData);
+  },
+  
+  update(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+      loggedInUser.name = request.body.name,
+      loggedInUser.email = request.body.email,
+      loggedInUser.password = request.body.password,
+      loggedInUser.address = request.body.address,
+      loggedInUser.gender = request.body.gender,
+      loggedInUser.height = request.body.height,
+      loggedInUser.startingweight = request.body.startingweight,
+    response.redirect('/settings');
+  },
 
   getCurrentUser(request) {
     const userEmail = request.cookies.member;

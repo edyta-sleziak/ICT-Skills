@@ -4,7 +4,6 @@ const _ = require('lodash');
 const JsonStore = require('./json-store');
 
 const memberStore = {
-
   store: new JsonStore('./models/member-store.json', { memberCollection: [] }),
   collection: 'memberCollection',
 
@@ -35,6 +34,10 @@ const memberStore = {
     this.store.removeAll(this.collection);
     this.store.save();
   },
+  
+  saveMember() {
+    this.store.save();
+  }
 
 
   

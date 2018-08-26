@@ -1,27 +1,16 @@
 {
-  "assessmentCollection": [
+  "assessmentsCollection": [
     {
-      "assessments": [
-        {
-          "id": "1",
-          "userid": "111",
-          "weight": "1",
-          "chest": "2",
-          "thigh": "3",
-          "upperArm": "4",
-          "waist": "5",
-          "hips": "6"
-        },
-        {
-          "id": "5c09cad9-5ece-4484-b8ed-03cae3896c7e",
-          "userid": "111",
-          "weight": "78",
-          "chest": "",
-          "thigh": "",
-          "upperArm": "",
-          "waist": "",
-          "hips": ""
-        }
-      ],
+      "id": "169d0ae3-8bbb-470f-9ad6-6a7c90b63e92",
+      "userid": "222",
+      "date": "",
+      "weight": "56",
+      "chest": "",
+      "thigh": "",
+      "upperArm": "",
+      "waist": "",
+      "hips": "",
+      "comment": ""
     }
+  ]
 }

@@ -1,26 +1,39 @@
 'use strict';
-
+const logger = require('../utils/logger.js');
 const _ = require('lodash');
 const JsonStore = require('./json-store');
 
 const assessmentStore = {
-  store: new JsonStore('./models/assessments-store.json', { assessmentCollection: [] }),
-  collection: 'memberCollection',
+  store: new JsonStore('./models/assessments-store.json', { assessmentsCollection: [] }),
+  collection: 'assessmentsCollection',
+   
+  getAllAssessments() {
+    return this.store.findAll(this.collection);
+  },
   
-  addAssessment(id, assessment) {
-    const member = this.getMember(id);
-    member.assessments.push(assessment);
+  addNewAssessment(assessment) {
+    this.store.add(this.collection, assessment);
     this.store.save();
   },
 
-  removeAssessment(id, assessmentId) {
-    const member = this.getMember(id);
-    const assessment = member.assessments;
-    _.remove(assessment, { id: assessmentId});
+  removeAssessment(assessmentId) {
+    const assessment = this.getAssessment(assessmentId);
+    this.store.remove(this.collection, assessment);
     this.store.save();
   },
   
-  getAssessments(userid){
+  getAssessments(userid) {
      return this.store.findBy(this.collection, { userid: userid });
+  },
+  
+  getAssessment(id) {
+     return this.store.findOneBy(this.collection, { id: id });
+  },
+  
+  saveAssessment() {
+    this.store.save();
   }
+  
 }
+
+module.exports = assessmentStore;

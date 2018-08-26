@@ -12,12 +12,15 @@ const accounts = require('./controllers/accounts.js');
 router.get('/', about.index);
 router.get('/login', accounts.login);
 router.get('/signup', accounts.signup);
-
 router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
+router.get('/logout', accounts.logout);
 
 router.get('/dashboard', dashboard.index);
+router.get('/settings', accounts.settings);
+router.post('/update', accounts.update);
 router.get('/about', about.index);
+
 router.get('/member/:id', member.index);
 router.get('/member/:id/deleteassessment/:assessmentid', member.deleteAssessment);
 router.get('/dashboard/deletemember/:id/', dashboard.deleteMember);

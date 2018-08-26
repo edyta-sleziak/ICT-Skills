@@ -1,5 +1,5 @@
 'use strict';
-
+const logger = require('../utils/logger.js')
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync')
 

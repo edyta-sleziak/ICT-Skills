@@ -1,7 +1,7 @@
 {
   "memberCollection": [
     {
-      "id": "member1",
+      "id": "111",
       "name": "testuser",
       "email": "test@email",
       "password": "testpassword",
@@ -10,27 +10,31 @@
       "height": "1.68",
       "startingweight": "60",
       "assessmentsNumber": 2,
-      "assessments": [
-        {
-          "id": "1",
-          "weight": "1",
-          "chest": "2",
-          "thigh": "3",
-          "upperArm": "4",
-          "waist": "5",
-          "hips": "6"
-        },
-        {
-          "id": "5c09cad9-5ece-4484-b8ed-03cae3896c7e",
-          "weight": "78",
-          "chest": "",
-          "thigh": "",
-          "upperArm": "",
-          "waist": "",
-          "hips": ""
-        }
-      ],
+      "assessments": [],
       "currentBMI": 27.64
+    },
+    {
+      "id": "67749a3a-92a5-40ac-8872-0f1254e48e2c",
+      "name": "Test1",
+      "email": "edyta@test",
+      "password": "1234",
+      "address": "Test address",
+      "gender": "F",
+      "height": "1.68",
+      "startingweight": "60",
+      "assessmentsNumber": 0,
+      "assessments": [],
+      "currentBMI": 27.64
+    },
+    {
+      "name": "Edyta",
+      "email": "edyta@test",
+      "password": "1234",
+      "address": "",
+      "gender": "F",
+      "height": "1.68",
+      "startingweight": "60",
+      "id": "77f6b56b-4295-4268-9e8b-aaa406095a6d"
     }
   ]
 }

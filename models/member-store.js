@@ -15,6 +15,10 @@ const memberStore = {
   getMember(id) {
     return this.store.findOneBy(this.collection, { id: id });
   },
+  
+  getMemberByEmail(email) {
+    return this.store.findOneBy(this.collection, { email: email });
+  },
 
   addMember(member) {
     this.store.add(this.collection, member);
@@ -32,18 +36,7 @@ const memberStore = {
     this.store.save();
   },
 
-  addAssessment(id, assessment) {
-    const member = this.getMember(id);
-    member.assessments.push(assessment);
-    this.store.save();
-  },
 
-  removeAssessment(id, assessmentId) {
-    const member = this.getMember(id);
-    const assessment = member.assessments;
-    _.remove(assessment, { id: assessmentId});
-    this.store.save();
-  },
   
 };
 

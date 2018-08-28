@@ -1,0 +1,10 @@
+{
+  "trainerCollection": [
+    {
+      "id": "trainer1",
+      "name": "test-trainer",
+      "email": "test@trainer",
+      "password": "testpassword"
+    }
+  ]
+}

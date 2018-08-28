@@ -1,4 +1,4 @@
-<section class="ui center aligned segment">
+<section class="ui center aligned blue segment">
   <div class ="ui grid">
     <div class ="five wide column">
       <i class ="huge user icon"></i><br />
@@ -16,6 +16,24 @@
       <i class="huge heartbeat icon"></i><br />
       <h4 class="ui header">
         BMI: {{member.currentBMI}}
+      </h4>
+    </div>
+    <div class ="five wide column">
+      <i class="huge doctor icon"></i><br />
+      <h4 class="ui header">
+        BMI category: <br />{{member.BMICategory}}
+      </h4>
+    </div>
+    <div class ="five wide column">
+      <i class="huge balance scale icon"></i><br />
+      <h4 class="ui header">
+        Ideal weight: {{member.idealWeight}} kgs
+      </h4>
+    </div>
+    <div class ="five wide column">
+      <i class="huge chart line icon"></i><br />
+      <h4 class="ui header">
+        Trend: {{member.trend}}
       </h4>
     </div>
 

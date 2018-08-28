@@ -4,7 +4,6 @@ const _ = require('lodash');
 const JsonStore = require('./json-store');
 
 const memberStore = {
-
   store: new JsonStore('./models/member-store.json', { memberCollection: [] }),
   collection: 'memberCollection',
 
@@ -14,6 +13,10 @@ const memberStore = {
 
   getMember(id) {
     return this.store.findOneBy(this.collection, { id: id });
+  },
+  
+  getMemberByEmail(email) {
+    return this.store.findOneBy(this.collection, { email: email });
   },
 
   addMember(member) {
@@ -31,19 +34,12 @@ const memberStore = {
     this.store.removeAll(this.collection);
     this.store.save();
   },
-
-  addAssessment(id, assessment) {
-    const member = this.getMember(id);
-    member.assessments.push(assessment);
+  
+  saveMember() {
     this.store.save();
-  },
+  }
 
-  removeAssessment(id, assessmentId) {
-    const member = this.getMember(id);
-    const assessment = member.assessments;
-    _.remove(assessment, { id: assessmentId});
-    this.store.save();
-  },
+
   
 };
 

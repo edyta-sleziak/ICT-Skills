@@ -2,6 +2,7 @@
 
 const logger = require('../utils/logger.js');
 const memberStore = require('../models/member-store.js');
+const helper = require('../models/helper.js');
 const assessmentStore = require('../models/assessments-store.js');
 const accounts = require('./accounts.js');
 const uuid = require('uuid');
@@ -30,12 +31,13 @@ const member = {
   
   addAssessment(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
+    const BMI = Math.round(Number(request.body.weight) / Math.pow(loggedInUser.height,2)*100)/100;
     //const member = memberStore.getMember(memberId);
     const newAssessment = {
       id: uuid(),
       userid: loggedInUser.id,
       date: "",
-      weight: request.body.weight,
+      weight: Number(request.body.weight),
       chest: request.body.chest,
       thigh: request.body.thigh,
       upperArm: request.body.upperArm,
@@ -44,7 +46,9 @@ const member = {
       comment: "",
     };
     loggedInUser.assessmentsNumber++;
-    loggedInUser.currentBMI = (Math.round(Number(request.body.weight) / Math.pow(Number(member.height),2)*100)/100);
+    loggedInUser.currentBMI = BMI;
+    loggedInUser.BMICategory = helper.checkBMICategory(BMI);
+    loggedInUser.idealWeight = helper.idealBodyWeight(loggedInUser);
     assessmentStore.addNewAssessment(newAssessment);
     //const viewData = assessmentStore.getAllAssessments();
     memberStore.saveMember();

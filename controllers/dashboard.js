@@ -3,6 +3,7 @@
 const logger = require('../utils/logger.js');
 const memberStore = require('../models/member-store.js');
 const assessmentStore = require('../models/assessments-store.js');
+const helper = require('../models/helper.js');
 const uuid = require('uuid');
 const accounts = require ('./accounts.js');
 
@@ -19,6 +20,18 @@ const dashboard = {
     response.render('dashboard', viewData);
   },
   
+  trainerview (request, response) {
+    logger.info('trainer dashboard rendering');
+    //const loggedInUser = accounts.getCurrentUser(request);
+    const viewData = {
+      title: 'Trainer Dashboard',
+      members: memberStore.getAllMembers(),
+      //assessments: assessmentStore.getAssessments(loggedInUser.id),
+    };
+    //logger.info('about to render', assessmentStore.getAssessments());
+    response.render('trainerdashboard', viewData);
+  },
+  
   deleteMember(request, response) {
     const memberId = request.params.id;
     logger.debug(`Deleting Member ${memberId}`);
@@ -28,7 +41,7 @@ const dashboard = {
   
   addMember(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
-    const BMI = (Math.round(Number(request.body.startingweight) / Math.pow(Number(request.body.height),2)*100)/100);
+    const idealBodyWeight = helper.idealBodyWeight(loggedInUser);
     const newMember = {
       id: request.body.id,
       name: request.body.name,
@@ -36,12 +49,14 @@ const dashboard = {
       password: request.body.password,
       address: request.body.address,
       gender: request.body.gender,
-      height: request.body.height,
-      startingweight: request.body.startingweight,
-      currentBMI: Number(BMI),
+      height: Number(request.body.height),
+      startingweight: Number(request.body.startingweight),
+      currentBMI: Math.round(Number(request.body.startingweight) / Math.pow(Number(request.body.height),2)*100)/100,
       assessmentsNumber: 0,
       assessments: []
     };
+    //const member = newMember;
+    loggedInUser.idealWeight = idealBodyWeight;
     memberStore.addMember(newMember);
     response.redirect('/dashboard');
     logger.debug('New Member = ', newMember);

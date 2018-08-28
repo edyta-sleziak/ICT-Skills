@@ -1,6 +1,8 @@
 'use strict';
 
 const member = require('../models/member-store');
+const trainer = require('../models/trainer-store');
+const helper = require('../models/helper.js');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
 
@@ -33,21 +35,43 @@ const accounts = {
   },
 
   register(request, response) {
-    const user = request.body;
-    user.id = uuid();
-    member.addMember(user);
-    logger.info(`registering ${user.email}`);
+    //const user = request.body;
+    const BMI = Math.round(Number(request.body.startingweight) / Math.pow(Number(request.body.height),2)*100)/100;
+    const newMember = {
+      id: uuid(),
+      name: request.body.name,
+      email: request.body.email,
+      password: request.body.password,
+      address: request.body.address,
+      gender: request.body.gender,
+      height: Number(request.body.height),
+      startingweight: Number(request.body.startingweight),
+      currentBMI: BMI,
+      BMICategory: "",
+      idealWeight: 0,
+      assessmentsNumber: 0,
+      trend: "--",
+      assessments: []
+    };
+    member.addMember(newMember);
+    newMember.BMICategory = helper.checkBMICategory(BMI);
+    newMember.idealWeight = helper.idealBodyWeight(newMember);
+    logger.info(`registering ${newMember.email}`);
     response.redirect('/login');
   },
 
   authenticate(request, response) {
     const user = member.getMemberByEmail(request.body.email);
-    if (user) {
+    const trainerAccount = trainer.getTrainerByEmail(request.body.email);
+    if (user && (user.password == request.body.password)) {
       response.cookie('member', user.email);
       logger.info(`logging in ${user.email}`);
       response.redirect('/dashboard');
+    } else if (trainerAccount && (trainerAccount.password == request.body.password)) {
+      response.cookie('trainer', trainerAccount.email);
+      logger.info(`logging in ${trainerAccount.email}`);
+      response.redirect('/trainerdashboard');
     } else {
-      //const message = "Incorrect username/password. Please try again.";
       response.redirect('/login');
     }
   },

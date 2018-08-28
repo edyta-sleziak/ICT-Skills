@@ -17,6 +17,7 @@ router.post('/authenticate', accounts.authenticate);
 router.get('/logout', accounts.logout);
 
 router.get('/dashboard', dashboard.index);
+router.get('/trainerdashboard', dashboard.trainerview);
 router.get('/settings', accounts.settings);
 router.post('/update', accounts.update);
 router.get('/about', about.index);

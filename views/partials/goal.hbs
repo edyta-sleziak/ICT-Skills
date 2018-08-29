@@ -1,0 +1,55 @@
+<section class="ui center aligned blue segment">
+  <div class="ui grid">
+    <div class="ui two column row">
+        <div class="ten wide column">
+           <h3 class="ui left aligned header">
+             Current goal information:
+           </h3>
+           <table class="ui center aligned small table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Weight</th>
+                <th>Days left</th>
+                <th>Kgs left</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>
+                    {{member.goaldate}}
+                  </td>
+                  <td>
+                    {{member.goalweight}}
+                  </td>
+                  <td>
+                    {{member.daysleft}}
+                  </td>
+                  <td>
+                    {{member.kgsleft}}
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+       </div>
+       <div class="six wide column">
+        <form class="ui form" action="/member/{{member.id}}/addgoal" method="POST">
+          <h3 class="ui left aligned header">
+            Add new goal:
+          </h3>
+          <div class="fields">
+            <div class="ten wide field">
+              <label>Date</label>
+              <input placeholder="23/06/2018" type="text" name="goaldate">
+            </div>
+            <div class="ten wide field">
+              <label>Weight in kgs</label>
+              <input placeholder="65" type="text" name="goalweight">
+            </div>
+          </div>
+          <button class="ui blue submit button">Set new goal</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

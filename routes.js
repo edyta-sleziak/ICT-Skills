@@ -24,8 +24,10 @@ router.get('/about', about.index);
 
 router.get('/member/:id', member.index);
 router.get('/member/:id/deleteassessment/:assessmentid', member.deleteAssessment);
+router.post('/member/:id/comment/:assessmentid', member.addComment);
 router.get('/dashboard/deletemember/:id/', dashboard.deleteMember);
 router.post('/member/:id/addassessment', member.addAssessment);
+router.post('/member/:id/addgoal', member.addGoal);
 //router.post('/dashboard/addmember', dashboard.addMember);
 
 module.exports = router;

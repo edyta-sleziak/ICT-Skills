@@ -10,11 +10,12 @@ const accounts = require ('./accounts.js');
 const dashboard = {
   index(request, response) {
     logger.info('dashboard rendering');
-    const loggedInUser = accounts.getCurrentUser(request);
+    const loggedInUser = accounts.getCurrentUser(request);   
     const viewData = {
       title: 'Member Dashboard',
       member: memberStore.getMember(loggedInUser.id),
       assessments: assessmentStore.getAssessments(loggedInUser.id),
+      goalTime: helper.getDaysDifference(loggedInUser.goaldate),
     };
     logger.info('about to render', assessmentStore.getAssessments());
     response.render('dashboard', viewData);
@@ -22,13 +23,10 @@ const dashboard = {
   
   trainerview (request, response) {
     logger.info('trainer dashboard rendering');
-    //const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Trainer Dashboard',
       members: memberStore.getAllMembers(),
-      //assessments: assessmentStore.getAssessments(loggedInUser.id),
     };
-    //logger.info('about to render', assessmentStore.getAssessments());
     response.render('trainerdashboard', viewData);
   },
   
@@ -52,10 +50,12 @@ const dashboard = {
       height: Number(request.body.height),
       startingweight: Number(request.body.startingweight),
       currentBMI: Math.round(Number(request.body.startingweight) / Math.pow(Number(request.body.height),2)*100)/100,
+      currentWeight: Number(request.body.startingweight),
+      currentTrend: "grey",
       assessmentsNumber: 0,
+      updateTime: helper.getUpdateTime(),
       assessments: []
     };
-    //const member = newMember;
     loggedInUser.idealWeight = idealBodyWeight;
     memberStore.addMember(newMember);
     response.redirect('/dashboard');

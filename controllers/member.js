@@ -36,7 +36,7 @@ const member = {
     const newAssessment = {
       id: uuid(),
       userid: loggedInUser.id,
-      date: "",
+      date: helper.setTime(),
       weight: Number(request.body.weight),
       chest: request.body.chest,
       thigh: request.body.thigh,
@@ -46,6 +46,7 @@ const member = {
       comment: "",
     };
     loggedInUser.assessmentsNumber++;
+    loggedInUser.currentWeight = Number(request.body.weight);
     loggedInUser.currentBMI = BMI;
     loggedInUser.BMICategory = helper.checkBMICategory(BMI);
     loggedInUser.idealWeight = helper.idealBodyWeight(loggedInUser);
@@ -56,6 +57,22 @@ const member = {
     response.redirect('/dashboard');
     logger.debug('New Assessment = ', newAssessment);
   },
+  
+  addComment(request, response) {
+    const memberId = request.params.id;
+    const assessment = assessmentStore.getAssessment(request.params.assessmentid);
+    assessment.comment = request.body.comment;
+    response.redirect('/member/'+memberId);
+  },
+  
+  addGoal(request, response) {
+    const user = memberStore.getMember(request.params.id);
+    user.goaldate = request.body.goaldate;
+    user.goalweight = request.body.goalweight;
+    user.kgsleft = Number(user.currentWeight) - Number(request.body.goalweight);
+    memberStore.saveMember();
+    response.redirect('/dashboard');
+  }
 
   
 };

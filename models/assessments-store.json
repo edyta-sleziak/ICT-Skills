@@ -22,7 +22,7 @@
       "upperArm": "",
       "waist": "",
       "hips": "",
-      "comment": ""
+      "comment": "8888"
     },
     {
       "id": "1847f716-ad18-45fa-bba2-a293928e8019",
@@ -256,6 +256,65 @@
       "id": "6cb66633-e613-4b97-bb77-344a84c9d0d1",
       "userid": "222",
       "date": "",
+      "weight": 77,
+      "chest": "",
+      "thigh": "",
+      "upperArm": "",
+      "waist": "",
+      "hips": "",
+      "comment": ""
+    },
+    {
+      "id": "d4187116-68db-4c04-8829-34e386a70442",
+      "userid": "222",
+      "weight": 666,
+      "chest": "",
+      "thigh": "",
+      "upperArm": "",
+      "waist": "",
+      "hips": "",
+      "comment": ""
+    },
+    {
+      "id": "9865b58b-b50c-4374-89cd-7ac2622ffaf0",
+      "userid": "222",
+      "date": "29/8/2018 19:43",
+      "weight": 44,
+      "chest": "",
+      "thigh": "",
+      "upperArm": "",
+      "waist": "",
+      "hips": "",
+      "comment": ""
+    },
+    {
+      "id": "57f4461b-91ba-4550-b043-6286403a5ebf",
+      "userid": "222",
+      "date": "29/8/2018 20:50",
+      "weight": 89,
+      "chest": "",
+      "thigh": "",
+      "upperArm": "",
+      "waist": "",
+      "hips": "",
+      "comment": ""
+    },
+    {
+      "id": "a969baee-5cab-436b-916b-a3d607ba3bac",
+      "userid": "222",
+      "date": "29/8/2018 21:8",
+      "weight": 77,
+      "chest": "",
+      "thigh": "",
+      "upperArm": "",
+      "waist": "",
+      "hips": "",
+      "comment": ""
+    },
+    {
+      "id": "0de80af0-3735-4f17-91f9-342df8a4b267",
+      "userid": "222",
+      "date": "29/8/2018 21:9",
       "weight": 77,
       "chest": "",
       "thigh": "",

@@ -51,7 +51,11 @@ const accounts = {
       idealWeight: 0,
       assessmentsNumber: 0,
       trend: "--",
-      assessments: []
+      assessments: [],
+      goaldate: "",
+      goalweight: "",
+      daysleft: "",
+      kgsleft: ""    
     };
     member.addMember(newMember);
     newMember.BMICategory = helper.checkBMICategory(BMI);

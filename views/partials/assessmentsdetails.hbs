@@ -1,0 +1,59 @@
+<section class="ui left aligned blue segment">
+  <h3 class="ui left aligned header">
+    List of assessments:
+  </h3>
+  {{#each assessment}}
+ <section class="ui segment">
+    <table class="ui small table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Weight</th>
+        <th>Chest</th>
+        <th>Thigh</th>
+        <th>Upper arm</th>
+        <th>Waist</th>
+        <th>Hips</th>
+        <th>Comment</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+            {{date}}
+          </td>
+          <td>
+            {{weight}}
+          </td>
+          <td>
+            {{chest}}
+          </td>
+          <td>
+            {{thigh}}
+          </td>
+          <td>
+            {{upperArm}}
+          </td>
+          <td>
+            {{waist}}
+          </td>
+          <td>
+            {{hips}}
+          </td>
+          <td>
+            {{comment}}
+          </td>
+        </tr>
+    </tbody>
+  </table>
+    <form class="ui form" action="/member/{{../member.id}}/comment/{{id}}" method="POST">
+      <div class="field">
+        <label>Comment</label>
+        <input placeholder="Comment" type="text" name="comment">
+      </div>
+      <button class="ui blue submit button">Add comment</button>
+    </form>
+  </section>
+{{/each}}
+</section>

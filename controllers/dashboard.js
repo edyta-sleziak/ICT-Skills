@@ -36,7 +36,7 @@ const dashboard = {
     const memberId = request.params.id;
     logger.debug(`Deleting Member ${memberId}`);
     memberStore.removeMember(memberId);
-    response.redirect('/dashboard/');
+    response.redirect('/trainerdashboard');
   },
   
   addMember(request, response) {

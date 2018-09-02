@@ -17,13 +17,13 @@
             <tbody>
                 <tr>
                   <td>
-                    {{member.goaldate}}
+                    {{member.displaygoaldate}}
                   </td>
                   <td>
                     {{member.goalweight}}
                   </td>
                   <td>
-                    {{member.daysleft}}
+                    {{member.goalTime}}
                   </td>
                   <td>
                     {{member.kgsleft}}
@@ -35,12 +35,12 @@
        <div class="six wide column">
         <form class="ui form" action="/member/{{member.id}}/addgoal" method="POST">
           <h3 class="ui left aligned header">
-            Add new goal:
+            Set new goal:
           </h3>
           <div class="fields">
             <div class="ten wide field">
               <label>Date</label>
-              <input placeholder="23/06/2018" type="text" name="goaldate">
+              <input placeholder="YYYY-MM-DD" type="text" name="goaldate">
             </div>
             <div class="ten wide field">
               <label>Weight in kgs</label>

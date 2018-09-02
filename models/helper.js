@@ -47,15 +47,46 @@ const helper = {
     return idealWeight;
   },
   
-  getTrend(loggedInUser) {
-    loggedInUser.goal = "";
-    
+  getTrend(user, weight) {
+    let currentTrend = "grey";
+    if (user.currentWeight > user.idealWeight) {
+      if (Number(weight) < user.currentWeight) {
+        currentTrend = "green"
+      } else if (Number(weight) > user.currentWeight) {
+        currentTrend = "red"
+      }
+    } else if (user.currentWeight < user.idealWeight) {
+      if (Number(weight) < user.currentWeight) {
+        currentTrend = "red"
+      } else if (Number(weight) > user.currentWeight) {
+        currentTrend = "green"
+      }
+    }
+    return currentTrend;
   },
   
   setTime() {
     const currentdate = new Date(); 
-    const datetime = currentdate.getDate() + "/" + (currentdate.getMonth()+1)  + "/" + currentdate.getFullYear() + " " + currentdate.getHours() + ":" + currentdate.getMinutes();
+    const datetime = currentdate.getFullYear() + "/" + (currentdate.getMonth()+1) + "/" + currentdate.getDate()  + " " + currentdate.getHours() + ":" + currentdate.getMinutes();
     return datetime;
+  },
+  
+  getUpdateTime(){
+    const currentdate = new Date(); 
+    const updateTime = Math.round(currentdate.getTime()/1000/60/60/24,0)
+    return updateTime;
+  },
+  
+  getGoalTime(goalTime) {
+    let date = new Date(goalTime); 
+    const n = date.getFullYear() + "/" + (date.getMonth()+1)  + "/" + date.getDate();
+    return n;
+  },
+  
+  getDaysDifference(time) {
+  let date = new Date(time); 
+  let daysDifference = Number(date) - Date.now();
+  return Math.round(daysDifference/1000/60/60/24,0);
   }
 }
 
